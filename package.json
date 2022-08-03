@@ -9,6 +9,9 @@
   "author": "michael.beale@autodesk.com",
   "license": "MIT",
   "dependencies": {
+    "cookie-session": "^2.0.0",
+    "express": "^4.18.1",
+    "forge-apis": "^0.9.1",
     "json-server": "^0.16.1",
     "node-fetch": "^2.6.1"
   }

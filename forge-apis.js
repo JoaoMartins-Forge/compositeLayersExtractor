@@ -1,12 +1,7 @@
 const fetch = require('node-fetch');
 // const classesInRevit = require('./class-mapping.json');
 
-const config = {
-	CLIENTID: process.env.FORGE_CLIENTID,
-	SECRET: process.env.FORGE_SECRET,
-	ACTIVITYID: process.env.FORGE_ACTIVITYID,
-	BASEAPI: process.env.BASEAPI //`https://quiet-sky-7620.fly.dev`
-};
+const { FORGE_CLIENT_ID, FORGE_CLIENT_SECRET, BASEAPI } = require('./config.js');
 
 class Forge {
 	constructor(token) {
@@ -19,7 +14,7 @@ class Forge {
 		return { Authorization: `Bearer ${token}`, "Content-Type": "Application/json" };
 	}
 
-	async triggerJob(urn, viewable, fileurl, token) {
+	async triggerJob(urn, viewable, fileurl) {
 		const DAPluginToken = await this.get2leggedAuth();
 
 		let downloadmappingURL = await this.getSignedURL("aux-oneclick-bucket", "class-mapping.json")
@@ -32,7 +27,7 @@ class Forge {
 				"inputFile": {
 					"url": fileurl,
 					"Headers": {
-						"Authorization": `Bearer ${token}}`
+						"Authorization": `Bearer ${DAPluginToken}}`
 					}
 				},
 				"params": {
@@ -45,21 +40,21 @@ class Forge {
 				},
 				"result": {
 					"verb": "post",
-					"url": `${config.BASEAPI}/urns/${urn + '|' + viewable}`,
+					"url": `${BASEAPI}/urns/${urn + '|' + viewable}`,
 					"Headers": {
 						"Content-Type": `application/json`
 					}
 				},
 				"onProgress": {
 					"verb": "post",
-					"url": `${config.BASEAPI}/jobs/${urn}`,
+					"url": `${BASEAPI}/jobs/${urn}`,
 					"Headers": {
 						"Content-Type": `application/json`
 					}
 				},
 				"onComplete": {
 					"verb": "post",
-					"url": `${config.BASEAPI}/jobs/${urn}`,
+					"url": `${BASEAPI}/jobs/${urn}`,
 					"Headers": {
 						"Content-Type": `application/json`
 					}
@@ -221,7 +216,7 @@ class Forge {
 	async get2leggedAuth() {
 		const url = `https://developer.api.autodesk.com/authentication/v1/authenticate`;
 		const header = { 'Content-Type': 'application/x-www-form-urlencoded' };
-		const body = `grant_type=client_credentials&client_id=${config.CLIENTID}&client_secret=${config.SECRET}&scope=data:read`;
+		const body = `grant_type=client_credentials&client_id=${FORGE_CLIENT_ID}&client_secret=${FORGE_CLIENT_SECRET}&scope=data:read`;
 		let token = await fetch(url, { method: 'POST', headers: header, body: body });
 		token = await token.json();
 		return token.access_token;
