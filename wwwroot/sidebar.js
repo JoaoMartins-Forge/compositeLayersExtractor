@@ -59,7 +59,6 @@ export function initTree(selector, onSelectionChanged) {
           case 'hub': return getProjects(tokens[1]);
           case 'project': return getContents(tokens[1], tokens[2]);
           case 'folder': return getContents(tokens[1], tokens[2], tokens[3]);
-          // case 'item': return getVersions(tokens[1], tokens[2], tokens[3]);
           case 'item': return getViewables(tokens[1], tokens[2], tokens[3]);
           default: return [];
         }
@@ -80,6 +79,24 @@ export function initTree(selector, onSelectionChanged) {
 async function triggerJob(urn, viewable, fileurl) {
   const url = `/job/trigger?urn=${urn}&viewable=${viewable}&fileurl=${fileurl}`;
   const res = await (await fetch(url, { mode: 'cors' })).json();
-  this.showtoast(res);
+  // this.showtoast(res);
+  showtoast(res);
   console.log(res);
+}
+
+async function showtoast(res) {
+  Swal.fire({
+    toast: true,
+    icon: 'success',
+    title: JSON.stringify(res),
+    animation: false,
+    position: 'bottom',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
 }

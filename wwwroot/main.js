@@ -4,13 +4,28 @@ import { initTree } from './sidebar.js';
 const login = document.getElementById('login');
 
 const jobs = document.getElementById('jobs');
-jobs.onclick = () => { window.location.href = "/jobs"; };
+jobs.onclick = () => {
+  window.open(
+    '/jobs',
+    '_blank' // <- This is what makes it open in a new window.
+  );
+};
 
 const urns = document.getElementById('urns');
-urns.onclick = () => { window.location.href = "/urns"; };
+urns.onclick = () => {
+  window.open(
+    '/urns',
+    '_blank' // <- This is what makes it open in a new window.
+  );
+};
 
 const carbons = document.getElementById('carbons');
-carbons.onclick = () => { window.location.href = "/carbons"; };
+carbons.onclick = () => {
+  window.open(
+    '/carbons',
+    '_blank' // <- This is what makes it open in a new window.
+  );
+};
 
 try {
   const resp = await fetch('/api/auth/profile', { mode: 'cors' });
