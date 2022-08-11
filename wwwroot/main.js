@@ -3,29 +3,29 @@ import { initTree } from './sidebar.js';
 
 const login = document.getElementById('login');
 
-const jobs = document.getElementById('jobs');
-jobs.onclick = () => {
-  window.open(
-    '/jobs',
-    '_blank' // <- This is what makes it open in a new window.
-  );
-};
+// const jobs = document.getElementById('jobs');
+// jobs.onclick = () => {
+//   window.open(
+//     `/jobs/${viewer.model.getSeedUrn()}`,
+//     '_blank'
+//   );
+// };
 
-const urns = document.getElementById('urns');
-urns.onclick = () => {
-  window.open(
-    '/urns',
-    '_blank' // <- This is what makes it open in a new window.
-  );
-};
+// const urns = document.getElementById('urns');
+// urns.onclick = () => {
+//   window.open(
+//     `/urns/${viewer.model.getSeedUrn()}`,
+//     '_blank'
+//   );
+// };
 
-const carbons = document.getElementById('carbons');
-carbons.onclick = () => {
-  window.open(
-    '/carbons',
-    '_blank' // <- This is what makes it open in a new window.
-  );
-};
+// const carbons = document.getElementById('carbons');
+// carbons.onclick = () => {
+//   window.open(
+//     `/carbons/${viewer.model.getSeedUrn()}`,
+//     '_blank'
+//   );
+// };
 
 try {
   const resp = await fetch('/api/auth/profile', { mode: 'cors' });

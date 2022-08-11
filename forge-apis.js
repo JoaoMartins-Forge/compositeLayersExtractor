@@ -1,7 +1,8 @@
 const fetch = require('node-fetch');
+var MongoClient = require('mongodb').MongoClient;
 // const classesInRevit = require('./class-mapping.json');
 
-const { FORGE_CLIENT_ID, FORGE_CLIENT_SECRET, BASEAPI } = require('./config.js');
+const { FORGE_CLIENT_ID, FORGE_CLIENT_SECRET, BASEAPI, MONGO_CONNECTION_STRING, MONGO_DB_NAME } = require('./config.js');
 
 class Forge {
 	constructor(token) {
@@ -213,6 +214,21 @@ class Forge {
 		return result;
 	}
 
+	async queryJob(urn, viewable) {
+		const client = new MongoClient(MONGO_CONNECTION_STRING);
+		let result;
+		try {
+			const db = await client.db(MONGO_DB_NAME);
+			const collection = await db.collection("jobs");
+			const findresult = await collection.findOne({ _id: `${urn}|${viewable}` });
+			result = findresult ? findresult.status : "not triggered!";
+		}
+		finally {
+			client.close();
+		}
+		return result;
+	}
+
 	async get2leggedAuth() {
 		const url = `https://developer.api.autodesk.com/authentication/v1/authenticate`;
 		const header = { 'Content-Type': 'application/x-www-form-urlencoded' };
@@ -221,7 +237,6 @@ class Forge {
 		token = await token.json();
 		return token.access_token;
 	}
-
 }
 
 module.exports = Forge;

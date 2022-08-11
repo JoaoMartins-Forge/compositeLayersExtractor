@@ -65,21 +65,58 @@ export function initTree(selector, onSelectionChanged) {
       }
     }
   });
-  tree.on('node.click', function (event, node) {
+  tree.on('node.click', async function (event, node) {
     event.preventTreeDefault();
     const tokens = node.id.split('|');
     if (tokens[0] === 'version') {
       onSelectionChanged(tokens[1], tokens[2]);
-      triggerJob(tokens[1], tokens[2], tokens[3]);
+      // let isdataready = await isViewableDataAvailable(tokens[1], tokens[2]);
+      if (!await isViewableDataAvailable(tokens[1], tokens[2])) {
+        triggerJob(tokens[1], tokens[2], tokens[3]);
+      }
+      else {
+        showtoast('The data is already available for this model!');
+      }
+
+      //Now we refer to selected version to retrieve data
+      const jobs = document.getElementById('jobs');
+      jobs.onclick = () => {
+        window.open(
+          `/jobs/${tokens[1]}|${tokens[2]}`,
+          '_blank'
+        );
+      };
+
+      const urns = document.getElementById('urns');
+      urns.onclick = () => {
+        window.open(
+          `/urns/${tokens[1]}|${tokens[2]}`,
+          '_blank'
+        );
+      };
+
+      const carbons = document.getElementById('carbons');
+      carbons.onclick = () => {
+        window.open(
+          `/carbons/${tokens[1]}|${tokens[2]}`,
+          '_blank'
+        );
+      };
     }
   });
   return new InspireTreeDOM(tree, { target: selector });
 }
 
+async function isViewableDataAvailable(urn, viewable) {
+  const url = `/job/status?urn=${urn}&viewable=${viewable}`;
+  const res = await (await fetch(url, { mode: 'cors' })).json();
+  showtoast({ status: res });
+  return res == 'success' ? true : false;
+}
+
 async function triggerJob(urn, viewable, fileurl) {
   const url = `/job/trigger?urn=${urn}&viewable=${viewable}&fileurl=${fileurl}`;
   const res = await (await fetch(url, { mode: 'cors' })).json();
-  // this.showtoast(res);
   showtoast(res);
   console.log(res);
 }

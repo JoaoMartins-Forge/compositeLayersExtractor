@@ -2,8 +2,9 @@ const forgeApi = require('./forge-apis');
 const session = require('cookie-session');
 const { getAuthorizationUrl, authCallbackMiddleware, authRefreshMiddleware, getUserProfile } = require('./services/forge/auth.js');
 const { getHubs, getProjects, getProjectContents, getItemVersions } = require('./services/forge/hubs.js');
+var MongoClient = require('mongodb').MongoClient;
 
-const { PORT, SERVER_SESSION_SECRET } = require('./config.js');
+const { PORT, SERVER_SESSION_SECRET, MONGO_CONNECTION_STRING, MONGO_DB_NAME } = require('./config.js');
 
 const jsonServer = require('json-server');
 const server = jsonServer.create();
@@ -43,36 +44,117 @@ server.get('/api/auth/profile', authRefreshMiddleware, async function (req, res,
 	}
 });
 
+server.get('/job/status', async (req, res) => {
+	const _forgeApi = new forgeApi();
+	const result = await _forgeApi.queryJob(req.query.urn, req.query.viewable);
+	res.jsonp(result);
+});
+
 //DB routes
 server.get('/job/trigger', async (req, res) => {
 	const _forgeApi = new forgeApi();
 	const result = await _forgeApi.triggerJob(req.query.urn, req.query.viewable, req.query.fileurl);
-	const workItemId = result.id;
-	router.db.get("jobs").insert({ id: workItemId, workItemId: workItemId, urn: req.query.urn, time: Date().toString(), status: "queued", reportUrl: "", stats: "" }).write();
+	addreplacetoMongoDB(`${req.query.urn}|${req.query.viewable}`, result, "jobs");
 	res.jsonp(result);
 });
 
+server.get('/jobs/:id', async (req, res) => {
+	const result = await readFromMongoDB('jobs', req.params.id);
+	res.jsonp(result);
+});
+
+server.get('/urns/:id', async (req, res) => {
+	const result = await readFromMongoDB('urns', req.params.id);
+	res.jsonp(result);
+});
+
+server.get('/deduplicated/:id', async (req, res) => {
+	const result = await readFromMongoDB('deduplicated', req.params.id);
+	res.jsonp(result);
+});
+
+server.get('/allinstances/:id', async (req, res) => {
+	const result = await readFromMongoDB('allinstances', req.params.id);
+	res.jsonp(result);
+});
+
+server.get('/carbons/:id', async (req, res) => {
+	const result = await readFromMongoDB('carbons', req.params.id);
+	res.jsonp(result);
+});
+
+async function readFromMongoDB(collectionname, id) {
+	const client = new MongoClient(MONGO_CONNECTION_STRING);
+	let result;
+	try {
+		const db = await client.db(MONGO_DB_NAME);
+		const collection = await db.collection(collectionname);
+		const findresult = await collection.findOne({ _id: id });
+		result = findresult ? findresult : "not found!";
+	}
+	finally {
+		client.close();
+	}
+	return result;
+}
+
 server.post('/jobs/:urn', function (req, res) {
-	req.body.workItemId = req.body.id;
-	req.body.urn = req.params.urn;
-	if (!req.body.status) req.body.status = "processing";
-	req.body.time = Date().toString();
 	console.info("job:", req.body);
-	addreplaceURN("jobs", req.body.workItemId, req.body);
+	updateJobStatus(req.body);
 	res.sendStatus(200);
 });
+
+async function updateJobStatus(jobData) {
+	const client = new MongoClient(MONGO_CONNECTION_STRING);
+	try {
+		const db = await client.db(MONGO_DB_NAME);
+		const collection = await db.collection("jobs");
+		const filter = { id: jobData.id };
+		if (!jobData.status) {
+			jobData.status = 'inprogress'
+		}
+		const findresult = await collection.replaceOne(filter, jobData);
+	}
+	finally {
+		client.close();
+	}
+}
 
 server.post('/urns/:urn', async function (req, res) {
 	req.body.id = req.params.urn;
 	const _forgeApi = new forgeApi();
-	addreplaceURN("allinstances", req.params.urn, req.body);
+	// addreplaceURN("allinstances", req.params.urn, req.body);
+	addreplacetoMongoDB(req.body.id, req.body, "allinstances");
 	const deduplicated = _forgeApi.calcHistogram(req.body.results).values();
-	addreplaceURN("deduplicated", req.params.urn, { id: req.params.urn, results: Array.from(deduplicated) });
+	// addreplaceURN("deduplicated", req.params.urn, { id: req.params.urn, results: Array.from(deduplicated) });
+	addreplacetoMongoDB(req.body.id, { id: req.params.urn, results: Array.from(deduplicated) }, "deduplicated");
 	// const results = await _forgeApi.injectAdditionalProperties(req.params.urn, req.body)
 	const results = await _forgeApi.deduplicateMaterials(req.params.urn, req.body);
-	addreplaceURN("urns", req.params.urn, results);
+	// addreplaceURN("urns", req.params.urn, results);
+	addreplacetoMongoDB(req.body.id, results, "urns");
+
 	res.sendStatus(200);
 });
+
+async function addreplacetoMongoDB(dataId, dataBody, collectionName) {
+	const client = new MongoClient(MONGO_CONNECTION_STRING);
+	try {
+		const db = await client.db(MONGO_DB_NAME);
+		const collection = await db.collection(collectionName);
+		const findresult = await collection.findOne({ _id: dataId });
+		if (findresult) {
+			const filter = { _id: dataId };
+			const replaceresult = await collection.replaceOne(filter, dataBody);
+		}
+		else {
+			dataBody._id = dataId;
+			const insertresult = await collection.insertOne(dataBody);
+		}
+	}
+	finally {
+		client.close();
+	}
+}
 
 // add/replace keys[urn] = data
 // make the URN's data mutable.
