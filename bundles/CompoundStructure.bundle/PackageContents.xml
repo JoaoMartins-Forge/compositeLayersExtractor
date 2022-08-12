@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ApplicationPackage Name="DACompoundLayerExtractor" Description="Sample Plugin for Revit" Author="Autodesk">
+  <CompanyDetails Name="Autodesk, Inc" Url="https://github.com/JoaoMartins-Forge" Email="joao.martins@autodesk.com"/>
+  <Components Description="Modify window parameters">
+    <RuntimeRequirements SeriesMax="R2023" SeriesMin="R2019" Platform="Revit" OS="Win64"/>
+    <ComponentEntry LoadOnRevitStartup="True" LoadOnCommandInvocation="False" AppDescription="Extract Compound Layers" ModuleName="./Contents/CompoundExtractor.addin" Version="1.0.0" AppName="Extract Compound Structure Layers"/>
+  </Components>
+</ApplicationPackage>

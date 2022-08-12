@@ -1,0 +1,653 @@
+{
+  "-2006130": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Abutments",
+    "group": "building",
+    "ExportClassAs": "COLUMN"
+  },
+  "-2006138": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Bearings",
+    "group": "building",
+    "ExportClassAs": "COLUMN"
+  },
+  "-2006133": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Bridge Cables",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2006135": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Bridge Decks",
+    "group": "building",
+    "ExportClassAs": "SLAB"
+  },
+  "-2006241": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Bridge Framing",
+    "group": "building",
+    "ExportClassAs": "BEAM"
+  },
+  "-2001000": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,volume",
+    "Name": "Casework",
+    "group": "building",
+    "ExportClassAs": "FURNITURE"
+  },
+  "-2000151": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Generic Models",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2000038": {
+    "DefaultUnit": "area",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Ceilings",
+    "group": "building",
+    "ExportClassAs": "HORIZONTAL FINISH"
+  },
+  "-2008124": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Duct Linings",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2006271": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Expansion Joints",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2006131": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Piers",
+    "group": "building",
+    "ExportClassAs": "COLUMN"
+  },
+  "-2008161": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Pipe Placeholders",
+    "group": "PlumbingAndPiping",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2006274": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Structural Tendons",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2001340": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "area,volume",
+    "Name": "Topography",
+    "group": "External",
+    "ExportClassAs": "SITE"
+  },
+  "-2009000": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "volume",
+    "Name": "Structural Rebar",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2008055": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Pipe Accessories",
+    "group": "plumbingAndPiping",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008043": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,volume,length",
+    "Name": "Piping Systems",
+    "group": "plumbingAndPiping",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008020": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Flex Ducts",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2009009": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Structural Path Reinforcement",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2008122": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Pipe Insulations",
+    "group": "plumbingAndPiping",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008101": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count",
+    "Name": "Switch System",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008150": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Cable Tray Runs",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008013": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Air Terminals",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2000340": {
+    "DefaultUnit": "area",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Curtain Systems",
+    "group": "building",
+    "ExportClassAs": "WALL"
+  },
+  "-2009030": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,volume",
+    "Name": "Structural Connections",
+    "group": "building",
+    "ExportClassAs": "COLUMN"
+  },
+  "-2001060": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Electrical Fixtures",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2000080": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,volume",
+    "Name": "Furniture",
+    "group": "building",
+    "ExportClassAs": "FURNITURE"
+  },
+  "-2008077": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count",
+    "Name": "Nurse Call Devices",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2001160": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,volume,area",
+    "Name": "Plumbing Fixtures",
+    "group": "plumbingAndPiping",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2000126": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "area,volume,length",
+    "Name": "Railings",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2001180": {
+    "DefaultUnit": "area",
+    "AvailableUnits": "area,volume",
+    "Name": "Parking",
+    "group": "external",
+    "ExportClassAs": "SITE"
+  },
+  "-2001350": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,volume,area,length",
+    "Name": "Specialty Equipment",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008087": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count",
+    "Name": "Lighting Devices",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008099": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,volume",
+    "Name": "Sprinklers",
+    "group": "plumbingAndPiping",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2000035": {
+    "DefaultUnit": "area",
+    "AvailableUnits": "area,volume",
+    "Name": "Roofs",
+    "group": "building",
+    "ExportClassAs": "ROOF"
+  },
+  "-2008075": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count",
+    "Name": "Telephone Devices",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008016": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Duct Accessories",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2001220": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "area,volume",
+    "Name": "Roads",
+    "group": "external",
+    "ExportClassAs": "SITE"
+  },
+  "-2001260": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Site",
+    "group": "external",
+    "ExportClassAs": "SITE"
+  },
+  "-2000170": {
+    "DefaultUnit": "area",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Curtain Panels",
+    "group": "building",
+    "ExportClassAss": "WALL"
+  },
+  "-2001120": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Lighting Fixtures",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2001336": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Structural Trusses",
+    "group": "building",
+    "ExportClassAs": "BEAM"
+  },
+  "-2008208": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,volume,length",
+    "Name": "MEP Fabrication Pipework",
+    "group": "PlumbingAndPiping",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2000269": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Parts",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2009017": {
+    "DefaultUnit": "area",
+    "AvailableUnits": "area,volume",
+    "Name": "Structural Fabric Areas",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2008123": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Duct Insulations",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008015": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Duct Systems",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2000100": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Columns",
+    "group": "building",
+    "ExportClassAs": "COLUMN"
+  },
+  "-2008212": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,volume,length",
+    "Name": "MEP Fabrication Containment",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2000171": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Curtain Wall Mullions",
+    "group": "building",
+    "ExportClassAs": "WALL"
+  },
+  "-2008044": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Pipes",
+    "group": "plumbingAndPiping",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2003100": {
+    "DefaultUnit": "area",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Sheets",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2000032": {
+    "DefaultUnit": "area",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Floors",
+    "group": "building",
+    "ExportClassAs": "SLAB"
+  },
+  "-2008000": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,volume,length",
+    "Name": "Ducts",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008193": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,volume,length",
+    "Name": "MEP Fabrication Ductwork",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008126": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,volume",
+    "Name": "Cable Tray Fittings",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008160": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Duct Placeholders",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEM"
+  },
+  "-2000501": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count",
+    "Name": "Cameras",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008085": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count",
+    "Name": "Fire Alarm Devices",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2000267": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Assemblies",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2008010": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,volume",
+    "Name": "Duct Fittings",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008149": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,length,volume",
+    "Name": "Conduit Runs",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008203": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,volume",
+    "Name": "MEP Fabrication Hangers",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008049": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,length,volume,area",
+    "Name": "Pipe Fittings",
+    "group": "plumbingAndPiping",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2009016": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Structural Fabric Reinforcement",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2008163": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,volume,length",
+    "Name": "Pipe Segments",
+    "group": "plumbingAndPiping",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2001300": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "area,volume,length",
+    "Name": "Structural Foundations",
+    "group": "building",
+    "ExportClassAs": "FOUNDATION"
+  },
+  "-2000011": {
+    "DefaultUnit": "area",
+    "AvailableUnits": "area,volume",
+    "Name": "Walls",
+    "group": "building",
+    "ExportClassAs": "WALL"
+  },
+  "-2000120": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "volume",
+    "Name": "Stairs",
+    "group": "building",
+    "ExportClassAs": "STAIRS"
+  },
+  "-2008132": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,volume,length",
+    "Name": "Conduits",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008039": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Wires",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2000180": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Ramps",
+    "group": "building",
+    "ExportClassAs": "SLAB"
+  },
+  "-2009003": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Structural Area Reinforcement",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2008079": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count",
+    "Name": "Security Devices",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2000023": {
+    "DefaultUnit": "area",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Doors",
+    "group": "building",
+    "ExportClassAs": "DOOR"
+  },
+  "-2001327": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "area,volume,length",
+    "Name": "Structural Beam Systems",
+    "group": "building",
+    "ExportClassAs": "BEAM"
+  },
+  "-2003400": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Mass",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2008081": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count",
+    "Name": "Communication Devices",
+    "group": "electrical",
+    "ExportClassAs": "BUILDINGTECH"
+  },
+  "-2001320": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Structural Framing",
+    "group": "building",
+    "ExportClassAs": "BEAM"
+  },
+  "-2008083": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count",
+    "Name": "Data Devices",
+    "group": "electrical",
+    "ExportClassAs": "BUILDINGTECH"
+  },
+  "-2009060": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,length,volume",
+    "Name": "Structural Rebar Couplers",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2001040": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Electrical Equipment",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008130": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,volume,length",
+    "Name": "Cable Trays",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2001330": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Structural Columns",
+    "group": "building",
+    "ExportClassAs": "COLUMN"
+  },
+  "-2001140": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,volume,area,length",
+    "Name": "Mechanical Equipment",
+    "group": "mechanical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2008037": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,area,volume,length",
+    "Name": "Electrical Circuits",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2000700": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Materials",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2001370": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Entourage",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2008050": {
+    "DefaultUnit": "length",
+    "AvailableUnits": "count,volume,length",
+    "Name": "Flex Pipes",
+    "group": "plumbingAndPiping",
+    "ExportClassAs": "SYSTEMS"
+  },
+  "-2001354": {
+    "DefaultUnit": "volume",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Structural Stiffeners",
+    "group": "building",
+    "ExportClassAs": "OTHER"
+  },
+  "-2001100": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Furniture Systems",
+    "group": "building",
+    "ExportClassAs": "FURNITURE"
+  },
+  "-2000014": {
+    "DefaultUnit": "area",
+    "AvailableUnits": "count,area,volume",
+    "Name": "Windows",
+    "group": "building",
+    "ExportClassAs": "WINDOW"
+  },
+  "-2008128": {
+    "DefaultUnit": "count",
+    "AvailableUnits": "count,volume,length",
+    "Name": "Conduit Fittings",
+    "group": "electrical",
+    "ExportClassAs": "SYSTEMS"
+  }
+}

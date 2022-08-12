@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="DBApplication">
+    <Name>CompoundLayerExtractor</Name>
+    <FullClassName>CompoundLayerExtractor.ExtractCompoundStructure</FullClassName>
+    <Text>CompoundLayerExtractor</Text>
+    <Description>Extract compound structure of Revit elements</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <Assembly>.\CompoundLayerExtractor.dll</Assembly>
+    <AddInId>8b73d7ff-7779-4ea1-adba-f72601e89b10</AddInId>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, Inc, www.autodesk.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
