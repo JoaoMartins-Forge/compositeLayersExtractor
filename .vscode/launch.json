@@ -5,18 +5,27 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"type": "pwa-node",
+			"type": "node",
 			"request": "launch",
 			"name": "Launch Program",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": [
+				"start"
+			],
+			"envFile": "${workspaceFolder}/.env",
 			"skipFiles": [
 				"<node_internals>/**"
 			],
 			"program": "${workspaceFolder}/server.js",
-			"env":{
-				"FORGE_CLIENTID":"8nW...bC4f",
-				"FORGE_SECRET":"9a...mvc",
-				"FORGE_ACTIVITYID":"8nWpMcyH5bge2LPW6hqDDAy9CKqQbC4f.CompoundStructLayerActivityv3+OneclickFixed",
-				"BASEAPI" : "http://4ac3-135-180-52-38.ngrok.io"
+			"env": {
+				"FORGE_CLIENT_ID": "",
+				"FORGE_CLIENT_SECRET": "",
+				"FORGE_CALLBACK_URL": "",
+				"FORGE_ACTIVITYID": "",
+				"BASEAPI": "",
+				"SERVER_SESSION_SECRET": "",
+				"MONGO_CONNECTION_STRING": "",
+				"MONGO_DB_NAME": ""
 			}
 		}
 	]

@@ -68,14 +68,16 @@ export function initTree(selector, onSelectionChanged) {
   tree.on('node.click', async function (event, node) {
     event.preventTreeDefault();
     const tokens = node.id.split('|');
+    const fileformat = tokens[3].split('.')[6];
     if (tokens[0] === 'version') {
       onSelectionChanged(tokens[1], tokens[2]);
       // let isdataready = await isViewableDataAvailable(tokens[1], tokens[2]);
-      if (!await isViewableDataAvailable(tokens[1], tokens[2])) {
+      if (!await isViewableDataAvailable(tokens[1], tokens[2]) && fileformat == 'rvt') {
         triggerJob(tokens[1], tokens[2], tokens[3]);
       }
       else {
-        showtoast('The data is already available for this model!');
+        const message = fileformat == 'rvt' ? 'The data is already available for this model!' : 'Only .rvt files are supported by this sample!';
+        showtoast(message);
       }
 
       //Now we refer to selected version to retrieve data

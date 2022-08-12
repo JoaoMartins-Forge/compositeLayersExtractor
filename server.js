@@ -120,17 +120,19 @@ async function updateJobStatus(jobData) {
 	}
 }
 
+server.post('/carbons/:urn', async function (req, res) {
+	req.body.id = req.params.urn;
+	addreplaceURN(req.body.id, req.body, "carbons");
+	res.sendStatus(200);
+});
+
 server.post('/urns/:urn', async function (req, res) {
 	req.body.id = req.params.urn;
 	const _forgeApi = new forgeApi();
-	// addreplaceURN("allinstances", req.params.urn, req.body);
 	addreplacetoMongoDB(req.body.id, req.body, "allinstances");
 	const deduplicated = _forgeApi.calcHistogram(req.body.results).values();
-	// addreplaceURN("deduplicated", req.params.urn, { id: req.params.urn, results: Array.from(deduplicated) });
 	addreplacetoMongoDB(req.body.id, { id: req.params.urn, results: Array.from(deduplicated) }, "deduplicated");
-	// const results = await _forgeApi.injectAdditionalProperties(req.params.urn, req.body)
 	const results = await _forgeApi.deduplicateMaterials(req.params.urn, req.body);
-	// addreplaceURN("urns", req.params.urn, results);
 	addreplacetoMongoDB(req.body.id, results, "urns");
 
 	res.sendStatus(200);
